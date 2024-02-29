@@ -1,37 +1,34 @@
-use std::io;
-use rand::Rng;
-use std::cmp::Ordering;
 
 fn main() {
+    // let mut x = 5;
+    // println!("The value of x is: {}", x);
+    //
+    // x = 6;
+    // println!("The value of x is: {}", x);
+    //
+    //     const THREE_HOURS_IN_SECONDS: u32 = 60 * 60 * 3;
+    // println!("{}", THREE_HOURS_IN_SECONDS);
 
-    println!("Guess the number");
-    let secret_number = rand::thread_rng().gen_range(1..=100);
+    let y = 5;
 
-    println!("The secret number is: {secret_number}");
+    let y = y + 1;
 
-    loop {
-        println!("Please input ur guess");
-
-        let mut guess = String::new();
-
-        io::stdin()
-            .read_line(&mut guess)
-            .expect("Failed to read line");
-
-        let guess: u32 = match guess.trim().parse() {
-            Ok(num) => num,
-            Err(_) => continue
-        };
-
-        println!("You guessed: {guess}");
-
-        match guess.cmp(&secret_number) {
-            Ordering::Less => println!("Too small!"),
-            Ordering::Greater => println!("Too big!"),
-            Ordering::Equal => {
-                println!("You win!");
-                break;
-            }
-        }
+    {
+        let y = y * 2;
+        println!("The value of x in the inner scope is: {y}");
     }
+
+    println!("The value of x is: {y}");
+
+    let spaces = "q";
+    let spaces = spaces.len();
+    println!("f: {}", spaces);
+
+
+    let mut spaces = "some";
+    let spaces = spaces.len();
+
+    println!("f2: {}", spaces);
+
 }
+
