@@ -1,46 +1,116 @@
-use std::io;
+use log::info;
 
 fn main() {
-    println!("Hello, world!");
-    another_function_1();
-    another_function_2(3);
-    print_labeled_measurement(3, 'c');
-
-    let r :i32  = five();
-
-    println!("{}", r);
-
-    let rr = plus_one(99);
-    println!("{rr}");
-
+    // let number = 3;
     //
+    // if number < 5 {
+    //     println!("condition was true");
+    // } else {
+    //     println!("condition was false");
+    // }
     //
-    // let cc: i32 =  1;
-    // println!("{}", cc);
-    // let y = {
-    //     let x = 3;
-    //     x + 1
+    // let number = 3;
+    //
+    // let number = 3;
+    //
+    // if number != 0 {
+    //     println!("number was something other than zero");
+    // }
+
+
+    // let number = 17;
+    //
+    // if number % 4 == 0 {
+    //     println!("number is divisible by 4");
+    // } else if number % 3 == 0 {
+    //     println!("number is divisible by 3");
+    // } else if number % 2 == 0 {
+    //     println!("number is divisible by 2");
+    // } else {
+    //     println!("number is not divisible by 4, 3, or 2");
+    // }
+    //
+    // let condition = false;
+    // let number = if condition { 5 } else { 6 };
+    //
+    // println!("The value of number is: {number}");
+    //
+    // let condition = true;
+    //
+    // let number = if condition { "one" } else { "six" };
+    //
+    // println!("The value of number is: {number}");
+    //
+    // let mut count = 0;
+    //
+    // loop {
+    //     println!("again!: {count}");
+    //
+    //     count += 1;
+    //     if count == 10 {
+    //         break;
+    //     }
+    // }
+
+
+    // let mut count  = 0;
+    //
+    //  let result =  loop {
+    //     count += 1;
+    //     if count == 10 {
+    //         break count * 2 ;
+    //     }
     // };
     //
-    // println!("The value of y is: {y}");
-}
+    // println!("{}", result);
+    //
+    // let mut count = 0;
+    // 'counting_up: loop {
+    //     println!("count = {count}");
+    //     let mut remaining = 10;
+    //
+    //     loop {
+    //         println!("remaining = {remaining}");
+    //         if remaining == 9 {
+    //             break;
+    //         }
+    //         if count == 2 {
+    //             break 'counting_up;
+    //         }
+    //         remaining -= 1;
+    //     }
+    //
+    //     count += 1;
+    // }
+    // println!("End count = {count}");
+    //
+    // let mut number = 3;
+    //
+    // while number != 0 {
+    //     println!("{number}!");
+    //
+    //     number -= 1;
+    // }
+    //
+    // println!("LIFTOFF!!!");
 
-fn another_function_1() {
-    println!("Another function.");
-}
 
-fn another_function_2(x: i32) {
-    println!("The value of x is: {x}");
-}
+    // let a = [10, 20, 30, 40, 50];
+    // let mut index = 0;
+    //
+    // while index < 5 {
+    //     println!("the value is: {}", a[index]);
+    //     index += 1;
+    // }
+    //
+    // let a = [10, 20, 30, 40, 50];
+    //
+    // for element in a {
+    //     println!("the value is: {element}");
+    // }
 
-fn print_labeled_measurement(value: i32, unit_label: char) {
-    println!("The measurement is: {value}{unit_label}");
-}
-
-fn five() -> i32 {
-    5
-}
-
-fn plus_one(x: i32) -> i32 {
-    x + 1
+    for number in (1..4).rev() {
+        println!("{number}!");
+    }
+    println!("LIFTOFF!!!");
 }
