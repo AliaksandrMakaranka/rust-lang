@@ -1,116 +1,105 @@
-use log::info;
-
 fn main() {
-    // let number = 3;
     //
-    // if number < 5 {
-    //     println!("condition was true");
-    // } else {
-    //     println!("condition was false");
-    // }
+    // let mut s = String::from("hello");
+    // let ss = "someText";
+    // println!("{}", ss);
     //
-    // let number = 3;
+    // s.push_str(", world!");
+    // println!("{}",s);
     //
-    // let number = 3;
+    // let x = 5;
+    // let y = x;
     //
-    // if number != 0 {
-    //     println!("number was something other than zero");
-    // }
+    // println!("{}, {}", x, y);
+    //
+    // let s1 = String::from("hello");
+    // let s2 = s1.clone();
+    //
+    // println!("{}, world!", s2);
 
+    println!("{}", "***************************************");
 
-    // let number = 17;
-    //
-    // if number % 4 == 0 {
-    //     println!("number is divisible by 4");
-    // } else if number % 3 == 0 {
-    //     println!("number is divisible by 3");
-    // } else if number % 2 == 0 {
-    //     println!("number is divisible by 2");
-    // } else {
-    //     println!("number is not divisible by 4, 3, or 2");
-    // }
-    //
-    // let condition = false;
-    // let number = if condition { 5 } else { 6 };
-    //
-    // println!("The value of number is: {number}");
-    //
-    // let condition = true;
-    //
-    // let number = if condition { "one" } else { "six" };
-    //
-    // println!("The value of number is: {number}");
-    //
-    // let mut count = 0;
-    //
-    // loop {
-    //     println!("again!: {count}");
-    //
-    //     count += 1;
-    //     if count == 10 {
-    //         break;
-    //     }
-    // }
+    // let s = String::from("hello");  // s comes into scope
 
+    // takes_ownership(s);             // s's value moves into the function...
+    // ... and so is no longer valid here
 
-    // let mut count  = 0;
-    //
-    //  let result =  loop {
-    //     count += 1;
-    //     if count == 10 {
-    //         break count * 2 ;
-    //     }
-    // };
-    //
-    // println!("{}", result);
-    //
-    // let mut count = 0;
-    // 'counting_up: loop {
-    //     println!("count = {count}");
-    //     let mut remaining = 10;
-    //
-    //     loop {
-    //         println!("remaining = {remaining}");
-    //         if remaining == 9 {
-    //             break;
-    //         }
-    //         if count == 2 {
-    //             break 'counting_up;
-    //         }
-    //         remaining -= 1;
-    //     }
-    //
-    //     count += 1;
-    // }
-    // println!("End count = {count}");
-    //
-    // let mut number = 3;
-    //
-    // while number != 0 {
-    //     println!("{number}!");
-    //
-    //     number -= 1;
-    // }
-    //
-    // println!("LIFTOFF!!!");
+    // let x = 5;                      // x comes into scope
 
+    // makes_copy(x);                  // x would move into the function,
+    // but i32 is Copy, so it's okay to still
+    // use x afterward
+    // let s1 = gives_ownership();         // gives_ownership moves its return
+    // value into s1
 
-    // let a = [10, 20, 30, 40, 50];
-    // let mut index = 0;
-    //
-    // while index < 5 {
-    //     println!("the value is: {}", a[index]);
-    //     index += 1;
-    // }
-    //
-    // let a = [10, 20, 30, 40, 50];
-    //
-    // for element in a {
-    //     println!("the value is: {element}");
-    // }
+    // let s2 = String::from("hello");     // s2 comes into scope
 
-    for number in (1..4).rev() {
-        println!("{number}!");
-    }
-    println!("LIFTOFF!!!");
+    // let s3 = takes_and_gives_back();
+
+    // println!("{}", s1);
+    // println!("{}", s2);
+    // println!("{}", s3);
+
+    // let s1 = String::from("hello");
+    //
+    // let (s2, len) = calculate_length(s1);
+    //
+    // println!("The length of '{}' is {}.", s2, len);
+    let mut s = String::from("hello");
+
+    let r1 = &s; // no problem
+    let r2 = &s; // no problem
+    // let r3 = &mut s; // BIG PROBLEM
+
+    println!("{}, {}", r1, r2);
+
+    let r3 = &mut s; // no problem
+    println!("{}", r3);
+
+    let g = dangle();
+    print!("{}", g);
 }
+
+fn dangle() -> String {
+    let s = String::from("dangle");
+    s
+}
+
+// fn calculate_length(s: String) -> (String, usize) {
+//     let length = s.len(); // len() returns the length of a String
+//     // (1.to_string(), 2);
+//     (s, length)
+// }
+
+
+// fn change(some_string: &mut String) {
+//     some_string.push_str(", world");
+// }
+
+// fn gives_ownership() -> String {             // gives_ownership will move its
+//     // return value into the function
+//     // that calls it
+//
+//     let some_string = String::from("yours"); // some_string comes into scope
+//
+//     some_string                              // some_string is returned and
+//     // moves out to the calling
+//     // function
+// }
+
+// This function takes a String and returns one
+// fn takes_and_gives_back(a_string: String) -> String { // a_string comes into
+//     // scope
+//
+//     a_string  // a_string is returned and moves out to the calling function
+// }
+
+//
+// fn takes_ownership(ss: String) { // some_string comes into scope
+//     println!("{}", ss);
+// } // Here, some_string goes out of scope and `drop` is called. The backing
+// // memory is freed.
+//
+// fn makes_copy(sint: i32) { // some_integer comes into scope
+//     println!("{}", sint);
+// } // Here, some_integer goes out of scope. Nothing special happens.
